@@ -1,15 +1,27 @@
-import Assignment2.CaesarCipher;
+import Assignment1.WordLengths;
+import Assignment2.CaesarBreaker;
+import Assignment2.TwoKeysDecript;
+
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        String message = "FIRST LEGION ATTACK EAST FLANK!";
+
+        WordLengths.testCountWordLengths();
+
+        //Count Letter Frequencies
+        //Decrypt a Message with One Key
+        //Split the Encrypted Message into Two Halves
+        //Determine the Keys Used for Each Half
+        //Decrypt the Message Encrypted with Two Keys
+        String message = "sam";
         int key = 3;
-        System.out.println(CaesarCipher.encrypt(message, key));
-        System.out.println("\n" + "Testing by reading from file: "+ "\n");
-        CaesarCipher.testCaesar();
-        System.out.println("\n" + "Encrypt using two keys");
-        System.out.println(CaesarCipher.encryptTwoKeys(message, key, 4)); //please check the spaces when using the two keys;
+        String h =TwoKeysDecript.encrypt(message, key);
+        System.out.println("\n" + h);
+        System.out.println("\n decrypt: " );
+        CaesarBreaker.testDecrypt();
+
+        System.out.println("Lawl my mind is fucked i can barely keep track of what am doing");
     }
 }
