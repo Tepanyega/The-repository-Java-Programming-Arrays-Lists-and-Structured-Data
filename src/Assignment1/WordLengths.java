@@ -1,4 +1,4 @@
-package Assignment1WordLengths;
+package Assignment1;
 
 import java.io.File;
 import java.io.FileNotFoundException;
