@@ -4,12 +4,13 @@ import Assignment2.CaesarCipher;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        String message = "FIRST LEGION ATTACK EAST FLANK!";
-        int key = 3;
-        System.out.println(CaesarCipher.encrypt(message, key));
-        System.out.println("\n" + "Testing by reading from file: "+ "\n");
-        CaesarCipher.testCaesar();
-        System.out.println("\n" + "Encrypt using two keys");
-        System.out.println(CaesarCipher.encryptTwoKeys(message, key, 4)); //please check the spaces when using the two keys;
+
+        String message = "Txhegofatxo my daughter";
+        CaesarCipher cc = new CaesarCipher(3);
+        System.out.println("original message: " + message);
+        System.out.println("Encrypted message: " + cc.encrypt(message));
+        System.out.println("decrypted message: " + cc.decrypt(cc.encrypt(message)));
     }
 }
+
+
