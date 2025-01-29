@@ -1,4 +1,4 @@
-package Assignment2;
+package Assignment1;
 
 public class CaesarCipher {
     // Make these fields static so they can be accessed from static context
@@ -123,7 +123,7 @@ public class CaesarCipher {
 ////
 ////    //tester method
 ////    //Reading a file and encrypting the characters in it
-////    public static void testCaesar(){
+////    public static void testCaesarCipherTwo(){
 ////
 ////        int key = 3;
 ////        try{
