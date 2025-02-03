@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class CharactersInPlay {
+public class  CharactersInPlay {
     private Map<String, Integer> characterMap; // Map for character name and count
 
     // Constructor to initialize the map

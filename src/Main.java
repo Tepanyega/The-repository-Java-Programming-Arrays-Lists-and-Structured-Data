@@ -7,7 +7,23 @@ import java.util.Set;
 
 public class Main {
 
+
+    {
+        for (int i = 0; i<word.length(); i++){
+            if(i%2 == 0){
+                //you use key i
+            }else{
+                //use odd
+            }
+        }
+    }
+
+
     public static void main(String[] args) throws FileNotFoundException {
+
+
+
+
         String message = "Top ncmy qkff vi vguv vbg ycpx";
         int key = 3;
         String encrtypted = "Hfs cpwewloj loks cd Hoto kyg Cyy.";
@@ -78,20 +94,29 @@ public class Main {
         }
 
         WordFrequencies wf = new WordFrequencies();
-        wf.tester("C:\\Users\\giles\\Telling a Random Story\\public\\file.txt");
+        wf.tester("C:\\Users\\giles\\Java-Programming-Arrays-Lists-and-Structured-Data\\public\\file.txt");
 
         CharactersInPlay cip = new CharactersInPlay();
 
         // Testing with macbethSmall.txt
         System.out.println("Testing with macbethSmall.txt...");
-        cip.tester("C:\\Users\\giles\\Telling a Random Story\\public\\macbethSmall.txt", 2); // Only print characters with at least 2 speaking parts
+        cip.tester("C:\\Users\\giles\\Java-Programming-Arrays-Lists-and-Structured-Data\\public\\macbethSmall.txt", 2); // Only print characters with at least 2 speaking parts
 
         // Testing with macbeth.txt (full play)
         System.out.println("\nTesting with macbeth.txt...");
-        cip.tester("C:\\Users\\giles\\Telling a Random Story\\public\\macbeth.txt", 10); // Set a higher threshold to filter major characters
+        cip.tester("C:\\Users\\giles\\Java-Programming-Arrays-Lists-and-Structured-Data\\public\\macbeth.txt", 10); // Set a higher threshold to filter major characters
 
         // Testing range method
         cip.charactersWithNumParts(5, 15);
+
+        System.out.println("\nGladlib class...");
+
+        Gladlib gladlib = new Gladlib();
+        gladlib.makeStory();
+
+        System.out.println("\nCodon Count class...");
+        CodeCount cc = new CodeCount();
+        cc.tester();
 
 
     }
