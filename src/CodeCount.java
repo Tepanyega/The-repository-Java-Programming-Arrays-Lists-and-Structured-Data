@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -12,10 +11,10 @@ public class CodeCount {
     }
 
     public  void buildCodonMap(int start, String dna){
-        codonMap.clear();
-        dna = dna.trim().toUpperCase();
+        codonMap.clear(); //clearing any data that might be existing in the Hashmap
+        dna = dna.trim().toUpperCase(); //getting wdna strands from the file and converting them to uppercase
 
-        for (int i = start; i + 2 < dna.length(); i += 3){
+        for (int i = start; i + 2 < dna.length(); i += 3){ //ijncrementing by 3, since our dna strands consist of 3 characters
             String codon = dna.substring(i, i + 3);
             codonMap.put(codon, codonMap.getOrDefault(codon, 0) +1);
         }
@@ -39,25 +38,28 @@ public class CodeCount {
     public void printCodonCounts(int start, int end){
         for (Map.Entry<String, Integer> entry : codonMap.entrySet()){
             if (entry.getValue() >= start && entry.getValue() <= end){
-                System.out.println(entry.getKey() + " " + entry.getKey());
+                System.out.println(entry.getKey() + "\t" + entry.getValue());
             }
         }
     }
 
     public void tester() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter filename: ");
-        String filename = scanner.nextLine();
+
 
         try{
-            File file = new File(filename);
-            Scanner filescanner = new Scanner(file);
-            StringBuilder dna = new StringBuilder();
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter file path: ");
+            String filepath = scanner.nextLine();
 
-            while(filescanner.hasNext()){
-                dna.append(true);
+            File file = new File(filepath);
+
+            StringBuilder dna = new StringBuilder();
+            BufferedReader br = new BufferedReader(new FileReader(filepath));
+            String line;
+            while((line = br.readLine()) != null){
+                dna.append(line.trim());
             }
-            filescanner.close();
+            br.close();
 
             for (int frame = 0; frame < 3; frame++) {
                 buildCodonMap(frame, dna.toString()); // Build codon map for reading frame
@@ -71,9 +73,9 @@ public class CodeCount {
                 printCodonCounts(1, 5);
                 System.out.println();
             }
-        } catch (FileNotFoundException e) {
-            System.out.println("File not found.");
+        }catch (IOException e) {
+            throw new RuntimeException(e);
         }
-        }
+    }
 
 }
